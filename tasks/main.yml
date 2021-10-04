@@ -1,0 +1,26 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: downloading {{ otelcol_url }} to {{ otelcol_exe }}
+  become: true
+  become_user: root
+  get_url:
+    url: '{{ otelcol_url }}'
+    dest: '{{ otelcol_exe }}'
+    mode: 0755
+    checksum: '{{ otelcol_checksum }}'
+- name: linking {{ otelcol_link}} to {{ otelcol_exe }}
+  become: true
+  become_user: root
+  file:
+    src: '{{ otelcol_exe }}'
+    dest: '{{ otelcol_link }}'
+    state: link

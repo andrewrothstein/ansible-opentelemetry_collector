@@ -1,0 +1,20 @@
+---
+# defaults file for opentelemetry_collector
+otelcol_ver: 0.33.0
+otelcol_mirror: https://github.com/open-telemetry/opentelemetry-collector/releases/download
+otelcol_os: linux
+otelcol_arch: amd64
+otelcol_install_dir: /usr/local/bin
+otelcol_checksums:
+  # https://github.com/open-telemetry/opentelemetry-collector/releases/download/v0.33.0/checksums.txt
+  '0.33.0':
+    # https://github.com/open-telemetry/opentelemetry-collector/releases/download/v0.33.0/otelcol_darwin_amd64
+    darwin_amd64: sha256:613f88edc5648e1fc7fad9b0b99ac7c51a7005b19720f25d4fc06617ed16de50
+    # https://github.com/open-telemetry/opentelemetry-collector/releases/download/v0.33.0/otelcol_darwin_arm64
+    darwin_arm64: sha256:2a56e5aed009f58c7056b7d8cca3294522a09c65c421ddf43457f486cc0f1052
+    # https://github.com/open-telemetry/opentelemetry-collector/releases/download/v0.33.0/otelcol_linux_amd64
+    linux_amd64: sha256:69cb18695cfded5cc00e4ff67c05c0eca4c6a0bcaed3c0b6419955538500d1fb
+    # https://github.com/open-telemetry/opentelemetry-collector/releases/download/v0.33.0/otelcol_linux_arm64
+    linux_arm64: sha256:e7d6d2976fafe7021505983852836cebe2b590f1e77bdd00be553178305e88c9
+    # https://github.com/open-telemetry/opentelemetry-collector/releases/download/v0.33.0/otelcol_windows_amd64.exe
+    windows_amd64: sha256:e448801c78c1c07d27e05543d68f40580e81cf65409df0b65fb70535049ef22c
