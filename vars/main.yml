@@ -1,7 +1,11 @@
 ---
 # vars file for opentelemetry_collector
 otelcol_platform: '{{ otelcol_os }}_{{ otelcol_arch }}'
-otelcol_url: '{{ otelcol_mirror }}/v{{ otelcol_ver }}/otelcol_{{ otelcol_platform }}{{ otelcol_dotexe | default("") }}'
+otelcol_name: otelcol_{{ otelcol_ver }}_{{ otelcol_platform }}
+otelcol_archive: '{{ otelcol_name }}.{{ otelcol_archive_type | default("tar.gz") }}'
+otelcol_tmp_archive: /tmp/{{ otelcol_archive }}
+otelcol_url: '{{ otelcol_mirror }}/v{{ otelcol_ver }}/{{ otelcol_archive }}'
 otelcol_checksum: '{{ otelcol_checksums[otelcol_ver][otelcol_platform] }}'
-otelcol_exe: '{{ otelcol_install_dir }}/otelcol_{{ otelcol_platform}}_{{ otelcol_ver}}{{ otelcol_dotexe | default("") }}'
-otelcol_link: '{{ otelcol_install_dir }}/otelcol'
+otelcol_install_dir: '{{ otelcol_parent_install_dir }}/{{ otelcol_name }}'
+otelcol_install_exe: '{{ otelcol_install_dir }}/otelcol'
+otelcol_install_link: '{{ otelcol_parent_install_dir }}/bin/otelcol'
