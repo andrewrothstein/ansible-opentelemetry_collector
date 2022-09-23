@@ -8,3 +8,8 @@
   - name: otelcol --version
     debug:
       msg: '{{ otelcol_test_output.stdout }}'
+  - command: /usr/local/bin/otelcol-contrib --version
+    register: otelcol_contrib_test_output
+  - name: otelcol-contrib --version
+    debug:
+      msg: '{{ otelcol_contrib_test_output.stdout }}'

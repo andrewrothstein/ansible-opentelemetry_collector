@@ -1,0 +1,49 @@
+---
+- name: resolving vars for {{ otelcol_app }}:{{ otelcol_ver }}
+  include_vars:
+    file: app-install-vars.yml
+- name: looking for install in {{ otelcol_install_dir }}
+  become: true
+  stat:
+    path: '{{ otelcol_install_dir }}'
+  changed_when: false
+  register: otelcol_binary
+- when: not otelcol_binary.stat.exists
+  block:
+    - name: downloading {{ otelcol_url }} to {{ otelcol_tmp_archive }}
+      become: true
+      become_user: root
+      get_url:
+        url: '{{ otelcol_url }}'
+        dest: '{{ otelcol_tmp_archive }}'
+        mode: 0644
+        checksum: '{{ otelcol_checksum }}'
+    - name: mkdir {{ otelcol_install_dir }}
+      become: true
+      become_user: root
+      file:
+        path: '{{ otelcol_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchive {{ otelcol_tmp_archive }} to {{ otelcol_install_dir }}
+      become: true
+      become_user: root
+      unarchive:
+        remote_src: true
+        src: '{{ otelcol_tmp_archive }}'
+        dest: '{{ otelcol_install_dir }}'
+        creates: '{{ otelcol_install_exe }}'
+  always:
+    - name: rm {{ otelcol_tmp_archive }}
+      become: true
+      become_user: root
+      file:
+        path: '{{ otelcol_tmp_archive }}'
+        state: absent
+- name: linking {{ otelcol_install_link}} to {{ otelcol_install_exe }}
+  become: true
+  become_user: root
+  file:
+    src: '{{ otelcol_install_exe }}'
+    dest: '{{ otelcol_install_link }}'
+    state: link

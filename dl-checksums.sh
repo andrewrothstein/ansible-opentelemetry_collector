@@ -4,46 +4,54 @@ DIR=~/Downloads
 MIRROR=https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download
 
 dl() {
-    local ver=$1
-    local app=$2
-    local os=$3
-    local arch=$4
-    local archive_type=${5:-tar.gz}
+    local lchecksums=$1
+    local ver=$2
+    local app=$3
+    local os=$4
+    local arch=$5
+    local archive_type=${6:-tar.gz}
     local platform="${os}_${arch}"
     local file="${app}_${ver}_${platform}.${archive_type}"
     local url="$MIRROR/v$ver/$file"
-    local lfile="${DIR}/${file}"
-    if [ ! -e $lfile ];
+    local shasum=$(grep $file $lchecksums | awk '{print $1}')
+    if [ ! -z $shasum ];
     then
-        curl -sSLf -o $lfile $url
+        printf "        # %s\n" $url
+        printf "        %s: sha256:%s\n" $platform $shasum
     fi
-    printf "    # %s\n" $url
-    printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
+}
+
+dlappvers() {
+    local lchecksums=$1
+    local ver=$2
+    local app=$3
+
+    printf "    %s:\n" $app
+    dl $lchecksums $ver $app darwin amd64
+    dl $lchecksums $ver $app darwin arm64
+    dl $lchecksums $ver $app linux 386
+    dl $lchecksums $ver $app linux amd64
+    dl $lchecksums $ver $app linux arm64
+    dl $lchecksums $ver $app windows 386
+    dl $lchecksums $ver $app windows amd64
 }
 
 dl_ver() {
     local ver=$1
-    local app=${2:-otelcol}
 
+    local lchecksums=$DIR/opentelemetry-collector-releases_checksums_${ver}.txt
+    # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.50.0/opentelemetry-collector-releases_checksums.txt
+    local url=$MIRROR/v${ver}/opentelemetry-collector-releases_checksums.txt
+    if [ ! -e $lchecksums ];
+    then
+        curl -sSLf -o $lchecksums $url
+    fi
+
+    printf "  # %s\n" $url
     printf "  '%s':\n" $ver
 
-    dl $ver $app darwin amd64
-    dl $ver $app darwin arm64
-    dl $ver $app linux 386
-    dl $ver $app linux amd64
-    dl $ver $app linux arm64
-    dl $ver $app windows 386
-    dl $ver $app windows amd64
+    dlappvers $lchecksums $ver otelcol
+    dlappvers $lchecksums $ver otelcol-contrib
 }
 
-dl_ver 0.40.0
-dl_ver 0.41.0
-dl_ver 0.42.0
-dl_ver 0.43.0
-dl_ver 0.44.0
-dl_ver 0.45.0
-dl_ver 0.46.0
-dl_ver 0.47.0
-dl_ver 0.48.0
-dl_ver 0.49.0
-dl_ver ${1:-0.50.0}
+dl_ver ${1:-0.60.0}
