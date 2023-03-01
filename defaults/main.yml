@@ -1,6 +1,6 @@
 ---
 # defaults file for opentelemetry_collector
-otelcol_ver: 0.64.0
+otelcol_ver: 0.72.0
 otelcol_mirror: https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download
 otelcol_arch_map:
   386: 386
@@ -479,3 +479,35 @@ otelcol_checksums:
         windows_386: sha256:ae940f09046c835b9e099c92e203dfa82011f2eb9ebdf1157fa7620636ef1a1d
         # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.64.0/otelcol-contrib_0.64.0_windows_amd64.tar.gz
         windows_amd64: sha256:5aecc32510bb6400db16b40eb0af12afe5ba7d57ad410b48418ebcf1cd438a56
+  # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/opentelemetry-collector-releases_checksums.txt
+  '0.72.0':
+    otelcol:
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol_0.72.0_darwin_amd64.tar.gz
+        darwin_amd64: sha256:5615655ef29ac3f3e2d260c401b98a793ed75516cf7f64e4e102ba975439e044
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol_0.72.0_darwin_arm64.tar.gz
+        darwin_arm64: sha256:3b5aba5f2ef4a5cf071fb8d2b2c4274a3c6997621eebcd6b1a5997804f3422a4
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol_0.72.0_linux_386.tar.gz
+        linux_386: sha256:9f00b73aa22cd9de01d375be02f938b3b00f3a364675231762697bda65865e61
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol_0.72.0_linux_amd64.tar.gz
+        linux_amd64: sha256:58be5de06052c209044e8b34f540ed6cbfce88c789cc043276f88c791b19afbb
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol_0.72.0_linux_arm64.tar.gz
+        linux_arm64: sha256:c69102f3eb92e169f62062be772c0113d80dd4fbc03f05ce4b4d03178bb806be
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol_0.72.0_windows_386.tar.gz
+        windows_386: sha256:cdac48e72605be44f1d2728648f7a146a4cbd9bafa2dbc665e6017c7d2fdd69e
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol_0.72.0_windows_amd64.tar.gz
+        windows_amd64: sha256:cdc1fd3a1ebdba59ba6b4850ee77982f8e745d740ff1d930e1d82b7d1cbced36
+    otelcol-contrib:
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_darwin_amd64.tar.gz
+        darwin_amd64: sha256:3f95e8bd1977c12f94151dcbdc2bd3a8750b350b17f400894cadfc03e0df11eb
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_darwin_arm64.tar.gz
+        darwin_arm64: sha256:77777ea9aaa73b5ffb0cf7fef689fdf9826dca1ccaed9cf9666135b38ad06e70
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_linux_386.tar.gz
+        linux_386: sha256:e7e3310c0c3bc984d2f4d9beb3311ea6788b4cb5acb4ccbd835d205427c26527
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_linux_amd64.tar.gz
+        linux_amd64: sha256:75c0b11b428f1021bd82d920762647f0d2671137113e2686338c948a2017d837
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_linux_arm64.tar.gz
+        linux_arm64: sha256:4db890e081f6ceee75ef5ba6a38d058db4fff07eb80714905cbeb548e664262d
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_windows_386.tar.gz
+        windows_386: sha256:365e3d45b07aa02848dbd1398c7991c13a6ae3cc8054ddd2dab7345cab69f25e
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_windows_amd64.tar.gz
+        windows_amd64: sha256:7192630dda36fa4c92afd6c127903ee93c006ee1e1a55badf90057b5fa8af67c
