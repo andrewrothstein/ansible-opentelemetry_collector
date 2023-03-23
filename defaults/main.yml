@@ -1,6 +1,6 @@
 ---
 # defaults file for opentelemetry_collector
-otelcol_ver: 0.72.0
+otelcol_ver: 0.74.0
 otelcol_mirror: https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download
 otelcol_arch_map:
   386: 386
@@ -511,3 +511,35 @@ otelcol_checksums:
         windows_386: sha256:365e3d45b07aa02848dbd1398c7991c13a6ae3cc8054ddd2dab7345cab69f25e
         # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.72.0/otelcol-contrib_0.72.0_windows_amd64.tar.gz
         windows_amd64: sha256:7192630dda36fa4c92afd6c127903ee93c006ee1e1a55badf90057b5fa8af67c
+  # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/opentelemetry-collector-releases_checksums.txt
+  '0.74.0':
+    otelcol:
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol_0.74.0_darwin_amd64.tar.gz
+        darwin_amd64: sha256:09f8ede66d0fcd53784cd4ba674542cc21f68ee47300d10fe495ec189b969d22
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol_0.74.0_darwin_arm64.tar.gz
+        darwin_arm64: sha256:5d8fc1ef9d30cf465170ebabbf9f207fd1b1dd39e485f116323d140d4e140f34
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol_0.74.0_linux_386.tar.gz
+        linux_386: sha256:2f02fdca188d8d9d8517e58de4aa476a5558938738f95f952b219917e338bcf8
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol_0.74.0_linux_amd64.tar.gz
+        linux_amd64: sha256:1e00ec55b269e0ca59ea443c26e618ed6853edf35fe195f62aad347f61bdfa63
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol_0.74.0_linux_arm64.tar.gz
+        linux_arm64: sha256:c6fb96e572a7fa2a901d86d13c3d40f20259b4e59f73143736748ed991846aad
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol_0.74.0_windows_386.tar.gz
+        windows_386: sha256:16c094c84449cf0d6dc87875f2b0e8d945074f2cca6825b3977295ce2d308ee6
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol_0.74.0_windows_amd64.tar.gz
+        windows_amd64: sha256:3de3f14d1b9b88b8bbd3ed3121d65c3b6a7d004946f8ae80bc848812a6b40269
+    otelcol-contrib:
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol-contrib_0.74.0_darwin_amd64.tar.gz
+        darwin_amd64: sha256:e47cc0dc967be4e5ca56c3458eee7717ec55bdf285aa61820d2753228f0e2a6d
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol-contrib_0.74.0_darwin_arm64.tar.gz
+        darwin_arm64: sha256:541fb056bf25186617c1115244b5c36724f7655f5d763a2673c7c788f779ec4f
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol-contrib_0.74.0_linux_386.tar.gz
+        linux_386: sha256:55ceeeee4df9519e3ec4fb67be985b73cefc0da5402030ec11403a5228142beb
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol-contrib_0.74.0_linux_amd64.tar.gz
+        linux_amd64: sha256:a5bdf93ba00d9ab28edc76a754d8a3f49126c518303795ce46768bf2310c7b2d
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol-contrib_0.74.0_linux_arm64.tar.gz
+        linux_arm64: sha256:0c4e88d7ee070daa76432f803b1c14c39481aeb91d54f6d0b306d7075775bddb
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol-contrib_0.74.0_windows_386.tar.gz
+        windows_386: sha256:9f51342862051851b4862cbee4f79b0dae6b4951d03140370a254841ddb39b6b
+        # https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.74.0/otelcol-contrib_0.74.0_windows_amd64.tar.gz
+        windows_amd64: sha256:b84d1e6f186b1383ce1e8fec2d1571524bdc12d0756614cf264d08313a4ea183

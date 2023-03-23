@@ -54,4 +54,4 @@ dl_ver() {
     dlappvers $lchecksums $ver otelcol-contrib
 }
 
-dl_ver ${1:-0.72.0}
+dl_ver ${1:-0.74.0}
