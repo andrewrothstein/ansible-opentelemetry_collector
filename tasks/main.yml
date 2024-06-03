@@ -1,8 +1,9 @@
 ---
-- include_role:
-    name: andrewrothstein.unarchive-deps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
+    name: andrewrothstein.unarchivedeps
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,7 +12,8 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- loop: '{{ otelcol_apps | default([]) }}'
+- name: Installing otel apps
+  loop: '{{ otelcol_apps | default([]) }}'
   loop_control:
     loop_var: otelcol_app
-  include_tasks: app-install.yml
+  ansible.builtin.include_tasks: app-install.yml
